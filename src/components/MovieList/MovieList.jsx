@@ -15,7 +15,7 @@ export const MovieList = () => {
     return(
         <Box as='ul'>
             {movies.map(movie => (
-                movie.original_title ? <li key={movie.id}>{movie.original_title}</li> : <li key={movie.id}>{movie.original_name}</li>
+                <li key={movie.id}>{movie.title}</li>
             ))}
         </Box>
     )
