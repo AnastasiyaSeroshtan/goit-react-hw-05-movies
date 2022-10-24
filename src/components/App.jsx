@@ -3,14 +3,10 @@ import { Routes, Route, NavLink} from 'react-router-dom';
 import { Box } from './Box';
 import { Home } from 'pages/Home';
 import { Movies } from 'pages/Movies';
+import { MovieDetails } from 'pages/MovieDetails';
 
 export const App = () => {
   return (
-    // <Routes>
-    //   <Route path='/' element={<div>Home</div>}/>
-    //   <Route path='/movies' element={<div>Movies</div>}/>
-    // </Routes>
-
    <Box>
       <nav>
         <NavLink to='/'>Home</NavLink>
@@ -19,6 +15,7 @@ export const App = () => {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/movies' element={<Movies />}/>
+        <Route path="/movies/:id" element={<MovieDetails />}/>
       </Routes>
    </Box>
 
