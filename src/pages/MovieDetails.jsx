@@ -1,27 +1,26 @@
 // import { Box } from "components/Box";
+// import { Cast } from "components/Cast/Cast";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { getMovieDetails } from "services/api";
 
 export const MovieDetails = () => {
     
-    const [movieInfo, setMovieInfo] = useState([]);
+    const [movieInfo, setMovieInfo] = useState(null);
     const { id } = useParams();
     // console.log(id)
     
     useEffect(() => {
         getMovieDetails(id).then(data => {
-            // console.log(data)
-            setMovieInfo([data])
+            // console.log('data', data)
+            setMovieInfo(data)
         })
-        // getMovieDetails(id).then(data => {
-        //     console.log(data)
-        // })
-    },[id])
+    },[id]);
 
-    console.log(movieInfo)
-    if (movieInfo === []) {
+
+    // console.log('movieInfo', movieInfo)
+    if (movieInfo === null) {
         return;
       }
 
@@ -29,9 +28,28 @@ export const MovieDetails = () => {
         <>
         
         <div>Product with {id}</div>
-        <div>Overwiew - {movieInfo[0].overview}</div>
-        <div>Popularity - {movieInfo[0].popularity}</div>
-        {/* <div>Poster_path - {movieInfo[0].poster_path}</div> */}
+        <div>Title - {movieInfo.title}</div>
+        <div>Country - {movieInfo.production_countries.map(country => (country.name))}</div>
+        <div>Release date - {movieInfo.release_date}</div>
+        <div>Overwiew - {movieInfo.overview}</div>
+        <div>Popularity - {movieInfo.popularity}</div>
+        <img src={`https://image.tmdb.org/t/p/w300${movieInfo.poster_path}`} alt={movieInfo.title}/>
+        <div>Genres - {movieInfo.genres.map(genre => (genre.name))}</div>
+        <div>
+        <h3>Additional information</h3>
+        <ul>
+            <li>
+                {/* <Link to='/movies/:id/cast'>Cast</Link>to={`/movies/${movie.id}`}> */}
+                <Link to={`/movies/${movieInfo.id}/cast`}>Cast</Link>
+            </li>
+            <li>
+                <Link to='reviews'>Reviews</Link>
+            </li>
+        </ul>
+        <Outlet />
+        </div>
+
+        {/* <Cast /> */}
         </>
         
     )
