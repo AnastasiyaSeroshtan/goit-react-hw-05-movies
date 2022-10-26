@@ -14,7 +14,7 @@ export const TrendingList = () => {
 
     useEffect(() => {
         getTrendingMovies().then(data => {
-            console.log(data);
+            // console.log(data);
             setTrendingMovies(prevState => [...prevState, ...data])
         })
     }, []);

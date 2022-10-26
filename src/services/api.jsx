@@ -45,8 +45,10 @@ export const getMovieReviews = async (id) => {
 
 export const getSearchMovies = async (query) => {
     try {
-        const res = await axios.get(`${BASEURL}search/movie?api_key=${KEY}&language=en-US&guery=${query}`);
-        return res;
+        const res = await axios.get(`${BASEURL}search/movie?api_key=${KEY}&language=en-US&query=${query}`);
+        
+        // const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${KEY}&language=en-US&query=${query}&page=1&include_adult=false`);
+        return res.data.results;
     }
     catch(error) {
         console.log(error)

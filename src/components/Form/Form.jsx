@@ -1,3 +1,5 @@
+
+
 import { Box } from "components/Box";
 import { useSearchParams } from "react-router-dom";
 
@@ -17,7 +19,7 @@ export const Form = ({onFormSubmit}) => {
         }
              console.log('title om Form', title)  
         onFormSubmit(title);
-        setSearchParams({title:''});
+        e.currentTarget.value = '';
     }           
 
     return (
@@ -35,22 +37,37 @@ export const Form = ({onFormSubmit}) => {
 
 
 
-// export const Form = () => {
-//     const [searchParams, setSearchParams] = useSearchParams();
-//     const title = searchParams.get('title');
+
+
+// 2 variant
+// import { Box } from "components/Box";
+// import { useState } from "react";
+
+// export const Form = ({onFormSubmit}) => {
+    
+
+//     const [searchLine, setSearchLine] = useState('');
 
 //     const handleChange = (e) => {
-//         setSearchParams(e.currentTarget.value !== "" ? { title:e.currentTarget.value } : {})
-//             };
+//         setSearchLine(e.currentTarget.value)
+//     };    
 
+//     const handleSubmit = (e) => {
+//         e.preventDefault();
+
+//         if(searchLine.trim() === ''){
+//             alert('Please enter a request!');
+//         }
+       
+//         onFormSubmit(searchLine);
+//         setSearchLine('');
+//     }        
 
 //     return (
-//     <Box as='form'>
+//     <Box as='form' onSubmit={handleSubmit}>
 //         <input  type="text" 
-//                 autoComplete="off" 
-//                 autoFocus 
 //                 placeholder="Search movies" 
-//                 value={title}
+//                 value={searchLine}
 //                 onChange={handleChange}/>
 //         <button type="submit">Search</button>
 //     </Box>
@@ -58,23 +75,21 @@ export const Form = ({onFormSubmit}) => {
 // };
 
 
-// export const Form = () => {
-//     const [searchLine, setSearchLine] = useState('');
 
-//     const handleChange = (e) => {
-//         setSearchLine(e.currentTarget.value)
-//     };
 
-//     return (
-//     <Box as='form'>
-//         <input  type="text" 
-//                 autoComplete="off" 
-//                 autoFocus 
-//                 placeholder="Search movies" 
-//                 value={searchLine}
-//                 onChange={handleChange}/>
-//         <button type="submit">Search</button>
-//     </Box>
-//     )
-   
-// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
