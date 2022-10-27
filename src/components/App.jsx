@@ -1,4 +1,4 @@
-// import { getTrendingMovies } from 'services/api';
+
 import { Routes, Route, NavLink} from 'react-router-dom';
 import { Box } from './Box';
 import { Home } from 'pages/Home';
@@ -29,5 +29,3 @@ export const App = () => {
   );
 };
 
-// getTrendingMovies().then(res => console.log(res.data.results))
-// res.data.results[2].title
