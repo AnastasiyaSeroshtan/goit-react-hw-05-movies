@@ -1,3 +1,4 @@
+import { Box } from "components/Box";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -16,29 +17,23 @@ export const Reviews = () => {
 
     console.log('reviews', reviews);
 
-    // console.log('reviewsRes', reviews.results);
-    // const getRewiewResults = () => {
-    //     return(
-    //         reviews.map(review => review.results)
-    //     )
-    // };
-
-    // console.log('getRewiewResults', getRewiewResults());
     if (reviews=== null) {
         return;
       }
     return(
-        <>
-        <div>Page Reviews</div>
-       <ul>
-       {reviews.map(review =>(
-            <li>
-                <p>Author:{review.author}</p>
-                <p>Date:{review.created_at}</p>
-                <p>Review:{review.content}</p>
-            </li>
-            ))}
-       </ul>
-        </>
+    <Box>
+              <h4>Page Reviews</h4>
+        {reviews.length>0 ?
+           <ul>
+           {reviews.map(({author, content}) =>(
+                <li>
+                    <p>Author:{author}</p>
+                    <p>Review:{content}</p>
+                </li>
+                ))}
+           </ul> :
+           <p>We don't have any reviews</p>
+        }
+    </Box>
     )
 };
