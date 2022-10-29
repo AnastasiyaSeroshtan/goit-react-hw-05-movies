@@ -1,7 +1,7 @@
 import { AdditionalInformation } from "components/AdditionalInformation/AdditionalInformation";
 import { Box } from "components/Box";
 import { MovieAbout } from "components/MovieAbout/MovieAbout";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { BackLink } from "./MovieDetails.styled";
 
 export const MovieDetails = () => {
