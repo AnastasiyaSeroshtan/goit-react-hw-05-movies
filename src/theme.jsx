@@ -4,8 +4,9 @@ export const theme = {
         secondary: '#878282',
         white: '#fff',
         lightGray: '#faf5f5',
-        accent: '#2f7f8a',
+        accent: '#dea024',
         muted: '#f6f6f6',
+        linkColor: '#0d1e8b',
       },
       fonts: {
         body: 'system-ui, sans-serif',

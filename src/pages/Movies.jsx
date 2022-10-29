@@ -57,14 +57,14 @@ export const Movies = () => {
             return
         }
         getSearchMovies(query).then(data => {
-    console.log('data', data);
+    // console.log('data', data);
     setSearchMovies(prevState => [...prevState, ...data]);
 })
     }, [query]);
 
     const handleFormSubmit = (query) => {
         setSearchParams({query})
-        console.log('query', query)
+        // console.log('query', query)
     };
 
     return(

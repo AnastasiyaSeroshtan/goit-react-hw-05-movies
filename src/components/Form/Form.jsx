@@ -1,3 +1,39 @@
+import { useState } from "react";
+import { Notify } from "notiflix";
+import { Box } from "components/Box";
+import { SearchInput, SearchFormBtn } from './Form.styled';
+
+export const Form = ({onFormSubmit}) => {
+    const [searchLine, setSearchLine] = useState('');
+
+    const handleChange = (e) => {
+        setSearchLine(e.currentTarget.value)
+    };    
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if(searchLine.trim() === ''){
+            Notify.info('Please enter a request!');
+        }
+       
+        onFormSubmit(searchLine);
+        setSearchLine('');
+    }        
+
+    return (
+    <Box as='form' onSubmit={handleSubmit}>
+        <SearchInput  type="text" 
+                placeholder="Enter movie name" 
+                value={searchLine}
+                onChange={handleChange}/>
+        <SearchFormBtn type="submit">Search</SearchFormBtn>
+    </Box>
+    ) 
+};
+
+
+// 2 variant
 // import { Box } from "components/Box";
 // import { useSearchParams } from "react-router-dom";
 
@@ -33,48 +69,6 @@
 //     </Box>
 //     ) 
 // };
-
-
-
-
-// 2 variant
-import { Box } from "components/Box";
-import { useState } from "react";
-
-export const Form = ({onFormSubmit}) => {
-    
-
-    const [searchLine, setSearchLine] = useState('');
-
-    const handleChange = (e) => {
-        setSearchLine(e.currentTarget.value)
-    };    
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if(searchLine.trim() === ''){
-            alert('Please enter a request!');
-        }
-       
-        onFormSubmit(searchLine);
-        setSearchLine('');
-    }        
-
-    return (
-    <Box as='form' onSubmit={handleSubmit}>
-        <input  type="text" 
-                placeholder="Search movies" 
-                value={searchLine}
-                onChange={handleChange}/>
-        <button type="submit">Search</button>
-    </Box>
-    ) 
-};
-
-
-
-
 
 
 
