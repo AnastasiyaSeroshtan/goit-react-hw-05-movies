@@ -18,4 +18,7 @@ export const DiscriptionItem = styled.li`
     &:last-child {
     margin-bottom: ${p => p.theme.space[0]}px;
   }
+  :hover{
+        color: ${p => p.theme.colors.accent};
+    };
 `

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "services/api";
+import { Item, Discription, Title } from "./Reviews.styled";
 
 export const Reviews = () => {
     const [reviews, setReviews] = useState(null);
@@ -10,29 +11,25 @@ export const Reviews = () => {
 
     useEffect(() => {
         getMovieReviews(id).then(data => {
-            // console.log(data);
             setReviews(data)
         })
     }, [id]);
-
-    console.log('reviews', reviews);
 
     if (reviews=== null) {
         return;
       }
     return(
-    <Box>
-              <h4>Page Reviews</h4>
+    <Box pt={4} pb={4}>
         {reviews.length>0 ?
            <ul>
            {reviews.map(({author, content}) =>(
-                <li>
-                    <p>Author:{author}</p>
-                    <p>Review:{content}</p>
-                </li>
+                <Item>
+                    <Title>Author:{author}</Title>
+                    <Discription>{content}</Discription>
+                </Item>
                 ))}
            </ul> :
-           <p>We don't have any reviews</p>
+           <Discription>We don't have any reviews</Discription>
         }
     </Box>
     )

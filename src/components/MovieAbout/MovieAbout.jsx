@@ -24,7 +24,7 @@ export const MovieAbout = () => {
     return(
         <Box display='flex' mt={4} mb={5}>
             {poster_path === null ?
-            <img src="../img/noImg.jpg" alt="No poster"/> :
+            <img src="https://pixabay.com/ru/vectors/%d0%b8%d0%ba%d1%81-%d0%b2%d1%8b%d1%85%d0%be%d0%b4-%d0%ba%d0%bd%d0%be%d0%bf%d0%ba%d0%b0-%d0%b7%d0%bd%d0%b0%d1%87%d0%be%d0%ba-%d1%81%d0%b8%d0%bc%d0%b2%d0%be%d0%bb-1152114/" alt="No img"/> :
             <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title}/>}
             <InfoWrapper>
                 <div>

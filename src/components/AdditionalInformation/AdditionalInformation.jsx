@@ -2,7 +2,6 @@ import { Link, useParams, useLocation } from "react-router-dom";
 import { Box } from "components/Box";
 import { TitleAI, DiscriptionItem } from "./AdditionalInformation.styled";
 
-
 export const AdditionalInformation = () => {
     const { id } = useParams();
     const location = useLocation();

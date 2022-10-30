@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from "react";
 import { Notify } from "notiflix";
 import { Box } from "components/Box";
@@ -31,6 +32,10 @@ export const Form = ({onFormSubmit}) => {
     </Box>
     ) 
 };
+
+Form.propTypes = {
+    onFormSubmit: PropTypes.func.isRequired,
+}
 
 
 // 2 variant

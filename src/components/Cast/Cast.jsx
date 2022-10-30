@@ -1,10 +1,11 @@
 // import { Link } from 'react-router-dom';
 
-import { Box } from "components/Box";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieCast } from "services/api";
+import { CastItem } from "./CastItem/CastItem";
+import { Gallery } from './Cast.styled';
 
 export const Cast = () => {
     const [movieCast, setMovieCast] = useState([])
@@ -12,20 +13,17 @@ export const Cast = () => {
 
     useEffect(() => {
         getMovieCast(id).then(data => {
-            // console.log(data)
             setMovieCast(prevState => [...prevState, ...data])
         })
     }, [id]);
 
     return(
-        <Box as='ul' display='flex'>
+        <Gallery>
             {movieCast.map(({credit_id, name, character, profile_path } ) => (
-            <li key={credit_id}>
-                <img src={`https://image.tmdb.org/t/p/w200/${profile_path}`} alt={name} height='260'/>
-                <p>Name:{name}</p>
-                <p>Character:{character}</p>
-            </li>
+                <CastItem key={credit_id} foto={profile_path}
+                    name={name}
+                    character={character}/>
          ))}
-        </Box>
+        </Gallery>
     )
 };
