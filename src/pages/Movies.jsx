@@ -1,11 +1,11 @@
 import { Box } from "components/Box";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { useSearchParams } from "react-router-dom";
 import { getSearchMovies } from "services/api";
 import { Form } from '../components/Form/Form';
 import { MoviesList } from "components/MoviesList/MoviesList";
 
-export const Movies = () => {
+const Movies = () => {
     const [searchMovies, setSearchMovies] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('query') ?? '';
@@ -31,6 +31,8 @@ export const Movies = () => {
         </Box>
     )
 };
+
+export default Movies;
 
 
 

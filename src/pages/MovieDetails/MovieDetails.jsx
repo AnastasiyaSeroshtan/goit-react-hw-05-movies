@@ -4,8 +4,7 @@ import { MovieAbout } from "components/MovieAbout/MovieAbout";
 import { Outlet, useLocation } from "react-router-dom";
 import { BackLink } from "./MovieDetails.styled";
 
-export const MovieDetails = () => {
-    // const { id } = useParams();
+const MovieDetails = () => {
     const location = useLocation();
     const backLinkHref = location.state?.from ?? '/movies';
 
@@ -18,4 +17,6 @@ export const MovieDetails = () => {
     </Box>
     )
 };
+
+export default MovieDetails;
 

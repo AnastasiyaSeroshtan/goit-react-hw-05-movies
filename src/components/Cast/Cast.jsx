@@ -7,7 +7,7 @@ import { getMovieCast } from "services/api";
 import { CastItem } from "./CastItem/CastItem";
 import { Gallery } from './Cast.styled';
 
-export const Cast = () => {
+const Cast = () => {
     const [movieCast, setMovieCast] = useState([])
     const { id } = useParams();
 
@@ -27,3 +27,5 @@ export const Cast = () => {
         </Gallery>
     )
 };
+
+export default Cast;

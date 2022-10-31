@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { getMovieReviews } from "services/api";
 import { Item, Discription, Title } from "./Reviews.styled";
 
-export const Reviews = () => {
+const Reviews = () => {
     const [reviews, setReviews] = useState(null);
     const { id } = useParams();
 
@@ -34,3 +34,5 @@ export const Reviews = () => {
     </Box>
     )
 };
+
+export default Reviews;

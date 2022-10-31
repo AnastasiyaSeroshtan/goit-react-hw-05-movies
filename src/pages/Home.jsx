@@ -1,7 +1,7 @@
 import { TrendingList } from '../components/TrendingList/TrendingList';
 import { Box } from "components/Box";
 
-export const Home = () => {
+const Home = () => {
     return (
         <Box as='main'>
             <h2>Trending movies</h2>
@@ -9,3 +9,5 @@ export const Home = () => {
         </Box>
     )
 };
+
+export default Home;
